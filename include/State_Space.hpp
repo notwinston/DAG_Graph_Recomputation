@@ -19,7 +19,7 @@ class Node {
         int getTimeCost() const { return time_cost_; }
 };
 
-//Current state of the schedule
+//Current state of the schedule 
 struct Schedule_State {
     std::vector<std::string> execution_order;
     std::vector<bool> recompute_flags; // true if this step is a recomputation of a previously executed node, Denotes if the current node is recomputed
