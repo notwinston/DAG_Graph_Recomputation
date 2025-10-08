@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 #include <vector>
 //Need seperate node class for BB search with peak and impact
@@ -8,15 +9,23 @@ class Node {
         int run_mem_; //memory required to run the operation's computation process
         int output_mem_; //memory required to store the output of the operation's computation process
         int time_cost_; //time required to run the operation's computation process
+        int peak_;
+        int impact_;
     public:
-        Node() : run_mem_(0), output_mem_(0), time_cost_(0) {}
-        Node(std::string name, std::vector<std::string> inputs, int run_mem, int output_mem, int time_cost) : name_(std::move(name)), input_names_(std::move(inputs)), run_mem_(run_mem), output_mem_(output_mem), time_cost_(time_cost)
+        Node() : run_mem_(0), output_mem_(0), time_cost_(0), peak_(0), impact_(0) {}
+        Node(std::string name, std::vector<std::string> inputs, int run_mem, int output_mem, int time_cost) : name_(std::move(name)), input_names_(std::move(inputs)), run_mem_(run_mem), output_mem_(output_mem), time_cost_(time_cost) {
+            peak_ = std::max(run_mem_, output_mem_);
+            impact_ = output_mem_;
+        }
+        void setImpact(int impact) { impact_ = impact; }
         //getters
         const std::string& getName() const { return name_; }
         const std::vector<std::string>& getInputs() const { return input_names_; }
         int getRunMem() const { return run_mem_; }
         int getOutputMem() const { return output_mem_; }
         int getTimeCost() const { return time_cost_; }
+        int getPeak() const { return peak_; }
+        int getImpact() const { return impact_; }
 };
 
 //Current state of the schedule 
