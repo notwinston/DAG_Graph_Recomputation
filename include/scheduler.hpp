@@ -15,8 +15,8 @@ std::unordered_set<std::string> getFreeableInputs(
     const ScheduleState& state,
     const std::unordered_map<std::string, std::unordered_set<std::string>>& dependencies);
     //spill handling functions
-static bool trySpillLargest(Schedule_State& state);
-static bool trySpillBest(const Problem& prob, Schedule_State& state);
+static bool trySpillLargest(Schedule_State& state); //..
+static bool trySpillBest(const Problem& prob, Schedule_State& state); //...
 
 //Schedulers
 ScheduleState TopologicalSchedule(const Problem& prob);

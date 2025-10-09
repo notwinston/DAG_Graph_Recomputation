@@ -46,3 +46,4 @@ struct Problem {
     std::unordered_map<std::string, std::unordered_set<std::string>> dependencies; // input -> consumers // Denotes the dependencies between the nodes
     std::unordered_map<std::string, std::vector<std::string>> successors; // node -> consumers list // Denotes the successors of the nodes
 };
+

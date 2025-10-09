@@ -19,7 +19,8 @@ static inline std::string trim(const std::string& s);
 static inline std::vector<std::string> splitCommaList(const std::string& value)
 //compiles the problem from the parsed node specs
 Problem buildProblem(long total_memory, const std::vector<ParsedNodeSpec>& specs);
-
+long getTotalMemory(Problem& prob);
+long getNumberOfNodes(Problem& prob);
 //Parser Functions
 bool parseExamplesFormat(std::istream& in, long& total_memory,
                          std::vector<ParsedNodeSpec>& nodes_out,
