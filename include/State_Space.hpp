@@ -1,5 +1,9 @@
 #pragma once
+
+#include <algorithm>
 #include <string>
+#include <unordered_map>
+#include <unordered_set>
 #include <vector>
 //Need seperate node class for BB search with peak and impact
 class Node {
@@ -37,7 +41,7 @@ struct Schedule_State {
     int total_time{0};
     std::unordered_set<std::string> computed; // Denotes the nodes that have been computed
     std::unordered_map<std::string, int> output_memory; // Denotes the memory required to store the output of the nodes
-}
+};
 
 struct Problem {
     long total_memory{0}; // Total memory available
@@ -46,4 +50,6 @@ struct Problem {
     std::unordered_map<std::string, std::unordered_set<std::string>> dependencies; // input -> consumers // Denotes the dependencies between the nodes
     std::unordered_map<std::string, std::vector<std::string>> successors; // node -> consumers list // Denotes the successors of the nodes
 };
+
+using ScheduleState = Schedule_State;
 
